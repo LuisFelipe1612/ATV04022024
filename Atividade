@@ -1,0 +1,43 @@
+//Bom tive que passar para o github pois o replit atualmente so permite 3 repls então nao conseguiria continuar a atividade por la, portanto irei enviar os textos de como resolver
+a atividade igual eu estava fazendo pois não sei programar (obs: também estou enviando um codigo em portugol do exercicio porem feito pela IA pois como eu disse, eu não sei programar)
+
+// Esse eu tive duvidas se estava pensando corretamente no que fazer então irei escrever minha ideia do que acredito ser o certo para fazer o programa rodar como foi pedido
+
+inicialmente a lista seria inserida no programa como por exemplo a usada [5, 2, 9, 1, 5, 6], após isso o programa iria ordenar com base em analisar cada um dos numeros por exemplo 
+se 5>1 então 1 virá depois de 5 e após analisar todos os numeros a sequencia correta crescente seria feita, no caso de algum numero ter o mesmo valor como o 5=5 entao na sequencia ficaria
+um após o outro sem identificar qual veio primeiro. Assim o codigo iria exibir no final a sequencia correta ficando [1, 2, 5, 5, 6, 9]
+
+// codigo da IA
+
+algoritmo "OrdenacaoPorInsercao"
+
+// Função para ordenar uma lista de números em ordem crescente usando o algoritmo de ordenação por inserção
+funcao ordenarPorInsercao(lista: vetor[inteiro]) : vetor[inteiro]
+    para i de 1 até comprimento(lista) - 1 faça
+        chave <- lista[i]
+        j <- i - 1
+        // Mover elementos da lista[0..i-1] que são maiores que chave para uma posição à frente
+        enquanto j >= 0 e lista[j] > chave faça
+            lista[j + 1] <- lista[j]
+            j <- j - 1
+        fimenquanto
+        lista[j + 1] <- chave
+    fimpara
+    retorne lista
+fimfuncao
+
+// Bloco principal
+inicio
+    // Exemplo de lista a ser ordenada
+    lista <- [5, 2, 9, 1, 5, 6]
+    
+    // Ordenar a lista
+    listaOrdenada <- ordenarPorInsercao(lista)
+    
+    // Imprimir a lista ordenada
+    escreva("Lista ordenada: ")
+    para i de 1 até comprimento(listaOrdenada) faça
+        escreva(listaOrdenada[i], " ")
+    fimpara
+    escreva("\n")
+fim
